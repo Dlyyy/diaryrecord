@@ -8,12 +8,12 @@ hashCode() 的作用是获取哈希码，也称为散列码；它实际上是返
 
 散列表存储的是键值对(key-value)，它的特点是：能根据“键”快速的检索出对应的“值”。这其中就利用到了散列码！（可以快速找到所需要的对象）   
 
-# 为什么要有 hashCode
+### 为什么要有 hashCode
 我们以“HashSet 如何检查重复”为例子来说明为什么要有 hashCode：   
 
 当你把对象加入 HashSet 时，HashSet 会先计算对象的 hashcode 值来判断对象加入的位置，同时也会与其他已经加入的对象的 hashcode 值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同 hashcode 值的对象，这时会调用 equals（）方法来检查 hashcode 相等的对象是否真的相同。如果两者相同，HashSet 就不会让其加入操作成功。如果不同的话，就会重新散列到其他位置。（摘自我的Java启蒙书《Head fist java》第二版）。这样我们就大大减少了 equals 的次数，相应就大大提高了执行速度。
 
-# hashCode（）与equals（）的相关规定
+### hashCode（）与equals（）的相关规定
 如果两个对象相等，则hashcode一定也是相同的  
 两个对象相等,对两个对象分别调用equals方法都返回true  
 两个对象有相同的hashcode值，它们也不一定是相等的   
